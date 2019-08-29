@@ -1,8 +1,8 @@
 # Conjure deps
 
-Runtime dependencies for [Conjure][], this is only required for ClojureScript environments at the moment, Clojure environments will have the dependencies injected automatically.
+Runtime dependencies for [Conjure][]. You don't need to add this to your project, it's just split into a separate repository at the moment to keep the main one neater.
 
-If you don't include this in your project Conjure will still connect to ClojureScript environments but will only allow you to perform evaluations.
+You can still use the munged dependencies and injection order files in your project if you so wish though.
 
 ```clojure
 ;; deps.edn
