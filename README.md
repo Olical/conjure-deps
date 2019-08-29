@@ -2,16 +2,6 @@
 
 Runtime dependencies for [Conjure][]. You don't need to add this to your project, it's just split into a separate repository at the moment to keep the main one neater.
 
-You can still use the munged dependencies and injection order files in your project if you so wish though.
-
-```clojure
-;; deps.edn
-olical/conjure-deps {:mvn/version "0.1.0"}
-
-;; project.clj
-[olical/conjure-deps "0.1.0"]
-```
-
 ## Munged ahead of time
 
 "Munging" is the term I use to describe rewriting dependency namespaces such that they won't conflict with any of your project dependencies via the wonderful [MrAnderson][].
