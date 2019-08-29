@@ -1,0 +1,12 @@
+{:paths ["output"]
+ :deps {}
+
+ :aliases
+ {:build
+  {:extra-paths ["src"]
+   :extra-deps
+   {org.clojure/tools.namespace {:mvn/version "0.3.0"}
+    thomasa/mranderson {:mvn/version "0.5.1"}
+    leiningen {:mvn/version "2.9.1"}
+    valuehash {:git/url "https://github.com/arachne-framework/valuehash.git"
+               :sha "ff1d4b7f1260daf41c786a61cb45d02871b7baf9"}}}}}

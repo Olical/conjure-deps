@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -e
+set -x
+
+mkdir -p output/conjure_deps/injection_orders
+clojure -A:build --main conjure-deps.main
