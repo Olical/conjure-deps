@@ -8,5 +8,8 @@
 ;; The injection order will be written "output/injection/order/HASH.edn"
 ;; where HASH is the MD5 hash of the data contained in this file.
 
-[[org.clojure/tools.namespace "0.3.1"]
- [compliment "0.3.9"]]
+{:deps [[org.clojure/tools.namespace "0.3.1"]
+        [compliment "0.3.9"]]
+ :ns-syms {:clj #{conjure-deps.compliment.v0v3v9.compliment.core
+                  conjure-deps.toolsnamespace.v0v3v1.clojure.tools.namespace.repl}
+           :cljs #{}}}

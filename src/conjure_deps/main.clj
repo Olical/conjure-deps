@@ -91,19 +91,19 @@
         (nodes->paths))))
 
 (defn -main []
-  (let [injected-deps (-> (io/resource "conjure_deps/injected_deps.edn")
-                          (slurp)
-                          (read-string))
+  (let [{:keys [deps ns-syms] :as injected-deps}
+        (-> (io/resource "conjure_deps/injected_deps.edn")
+            (slurp)
+            (read-string))
         injection-order-file (io/file
                                injection-orders-dir
                                (str (vh/md5-str injected-deps) ".edn"))]
-    (munge! injected-deps)
+    (munge! deps)
 
     (->> (with-out-str
            (pp/pprint
-             {:clj (build-injection-order! :clj #{'conjure-deps.compliment.v0v3v9.compliment.core
-                                                  'conjure-deps.toolsnamespace.v0v3v1.clojure.tools.namespace.repl})
-              :cljs (build-injection-order! :cljs #{})}))
+             {:clj (build-injection-order! :clj (:clj ns-syms))
+              :cljs (build-injection-order! :cljs (:cljs ns-syms))}))
          (spit injection-order-file))
 
     (println "Injection order written to:"
