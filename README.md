@@ -10,6 +10,12 @@ All versions of outputs of this process are contained within this repository and
 
 The source code of the projects I depend on should have their original licenses respected despite being contained within this repository under my license of choice. My license only applies to my code that helps fetch and munge the correct files.
 
+## Injected at runtime
+
+As you connect to a remote prepl with Conjure it checks which set of runtime dependencies are already present in the server. If the hash you need isn't loaded it'll inject them and mark that hash as loaded.
+
+Multiple versions of Conjure that require multiple sets of dependencies and versions can connect to the same prepl at once if required. So if a few people on your team use Conjure you can all connect and inject dependencies without anything conflicting.
+
 ## Unlicenced
 
 Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
