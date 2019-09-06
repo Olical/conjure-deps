@@ -3,5 +3,6 @@
 set -e
 set -x
 
-mkdir -p output/conjure_deps/injection_orders
+rm -rf output
+mkdir -p output/conjure_deps
 clojure -A:build --main conjure-deps.main

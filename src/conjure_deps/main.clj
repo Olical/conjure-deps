@@ -7,12 +7,11 @@
             [clojure.tools.namespace.parse :as parse]
             [clojure.tools.namespace.file :as file]
             [clojure.tools.namespace.dependency :as dep]
-            [mranderson.core :as ma]
-            [valuehash.api :as vh]))
+            [mranderson.core :as ma]))
 
 (def output-dir (io/file "output"))
 (def munged-dir (io/file output-dir "conjure_deps"))
-(def injection-orders-dir (io/file munged-dir "injection_orders"))
+(def injection-order-file (io/file munged-dir "injection_order.edn"))
 
 (defn- munge!
   "Fetch and munge dependencies."
@@ -91,13 +90,10 @@
         (nodes->paths))))
 
 (defn -main []
-  (let [{:keys [deps ns-syms] :as injected-deps}
+  (let [{:keys [deps ns-syms]}
         (-> (io/resource "conjure_deps/injected_deps.edn")
             (slurp)
-            (read-string))
-        injection-order-file (io/file
-                               injection-orders-dir
-                               (str (vh/md5-str injected-deps) ".edn"))]
+            (read-string))]
     (munge! deps)
 
     (->> (with-out-str
