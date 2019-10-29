@@ -1,12 +1,10 @@
-;; These dependencies are fetched and munged by bin/build
-;; (conjure-deps.main). The results are written to the "output/munged"
-;; directory.
+;; These dependencies are fetched and munged by bin/build (conjure-deps.main).
+;; The results are written to the "output/conjure_deps" directory.
 
 ;; When you change these versions you need to update the symbols used in conjure.code.
 ;; The version numbers in the munged namespaces will change!
 
-;; The injection order will be written "output/injection/order/HASH.edn"
-;; where HASH is the MD5 hash of the data contained in this file.
+;; The injection order will be written to "output/conjure_deps/injection_order.edn".
 
 {:deps [[org.clojure/tools.namespace "0.3.1"]
         [compliment "0.3.9"]]
